@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #363A6C;
+}
+
+header {
+    color: #ffff;
+    font-family: 'Montserrat';
+
+}
+
+a {
+    color: #ffff;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Montserrat';
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+nav {
+    display: flex;
+    background: #2B313D;
+    height: 8vh;
+
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list > li {
+    letter-spacing: 3px;
+    margin:auto;
+    margin-left: 32px;
+}
+
+.button {
+    background-color: #31A8C6;
+    border: none;
+    padding: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.banner {
+    background-image: url(./assets/ilustracao-home-grande1.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80%;
+    height: 600px;
+    padding-top: 60px;
+}
+
+#slogan {
+    font-weight: 280;
+    font-size: 40px;
+    margin-left: 30px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.redes-sociais {
+    letter-spacing: 35px;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.text {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.quem-somos {
+    display: inline-block;
+    padding: 10%;
+}
+
+.proposito {
+    display: inline-block;
+    padding: 10%;
+    padding-top: 0%;
+}
+
+.metas {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.metas > .text {
+    float: left;
+}
+
+/* Posicionamento das imagens*/
+.quem-somos > .img {
+    float: left;
+}
+
+.proposito > .img {
+    float: right;
+}
+
+.metas > .img {
+    float: right;
+}
+
+footer {
+    background-color: #2B313D;
+    color: #ffff;
+    height: 20px;
+    text-align: center;
+}
+
+
+ /* Mobile */ 
+
+ @media screen and (max-width: 768px) {
+    .banner {
+        background-image: url(./assets/ilustracao-home-mobile15.svg);
+        background-position: bottom-right;
+        background-size:cover;
+        margin-top: -30px;
+        height: 600px;
+        margin: auto;
+    } 
+
+    #slogan {
+        font-size: 6vw;
+        margin-top: -60px;
+        text-align: center;
+    }
+
+    .redes-sociais {
+        text-align: center;
+        margin-top: 0px;
+    }
+}
+
+ 
