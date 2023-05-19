@@ -93,7 +93,6 @@ h1 {
 }
 
 .proposito {
-    display: inline-block;
     padding: 10%;
     padding-top: 0%;
 }
@@ -101,6 +100,7 @@ h1 {
 .metas {
     margin-left: 20px;
     display: inline-block;
+    margin-top: 50px;
 }
 
 .metas > .text {
@@ -130,6 +130,37 @@ footer {
 .h1-nosso-proposito {
     margin-bottom: 30px;
 }
+
+.h1-quem-somos {
+    margin-bottom: 30px;
+}
+
+.h1-metas-de-atuação {
+    margin-top: 50px;
+}
+
+.principios-div {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    margin-top: 30px;
+
+}
+
+
+.principio-1 {
+    margin-right: 40px;
+}
+.principio-2 {
+    margin-right: 40px;
+}
+.principio-3 {
+    margin-right: 40px;
+}
+.principio-4 {
+    margin-right: 40px;
+}
+
 
 
  /* Mobile */ 
