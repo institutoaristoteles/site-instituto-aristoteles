@@ -79,7 +79,6 @@ h1 {
     font-weight: bolder;
     font-size: 40px;
     text-align: center;
-    padding-bottom: 10px;
 }
 
 .text {
@@ -89,10 +88,17 @@ h1 {
 
 .quem-somos {
     display: inline-block;
-    padding: 10%;
+    padding: 5% 10%;
+    margin-left: -10px;
+    margin-right: 10px;
+}
+
+.quem-somos > .text {
+    margin-top: 40px;
 }
 
 .proposito {
+    display: inline-block;
     padding: 10%;
     padding-top: 0%;
 }
@@ -100,7 +106,6 @@ h1 {
 .metas {
     margin-left: 20px;
     display: inline-block;
-    margin-top: 50px;
 }
 
 .metas > .text {
@@ -110,28 +115,23 @@ h1 {
 /* Posicionamento das imagens*/
 .quem-somos > .img {
     float: left;
+    padding-right: 40px;
 }
 
 .proposito > .img {
     float: right;
+    padding-left: 40px;
 }
 
 .metas > .img {
     float: right;
 }
 
-footer {
-    background-color: #2B313D;
-    color: #ffff;
-    height: 20px;
-    text-align: center;
-}
-
-.h1-nosso-proposito {
+.h1-quem-somos {
     margin-bottom: 30px;
 }
 
-.h1-quem-somos {
+.h1-nosso-proposito {
     margin-bottom: 30px;
 }
 
@@ -139,14 +139,17 @@ footer {
     margin-top: 50px;
 }
 
+.principios {
+    margin-top: -25px;
+}
+
 .principios-div {
     display: flex;
     justify-content: center;
     margin-right: 10px;
     margin-top: 30px;
-
+    text-align: center;
 }
-
 
 .principio-1 {
     margin-right: 40px;
@@ -161,7 +164,12 @@ footer {
     margin-right: 40px;
 }
 
-
+footer {
+    background-color: #2B313D;
+    color: #ffff;
+    height: 20px;
+    text-align: center;
+}
 
  /* Mobile */ 
 
