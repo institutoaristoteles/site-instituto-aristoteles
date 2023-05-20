@@ -82,7 +82,7 @@ h1 {
 }
 
 .text {
-    font-size: 20px;
+    font-size: larger;
     text-align: justify;
 }
 
@@ -146,9 +146,11 @@ h1 {
 .principios-div {
     display: flex;
     justify-content: center;
+    margin-left: 10px;
     margin-right: 10px;
     margin-top: 30px;
     text-align: center;
+    font-size: medium;
 }
 
 .principio-1 {
@@ -158,9 +160,6 @@ h1 {
     margin-right: 40px;
 }
 .principio-3 {
-    margin-right: 40px;
-}
-.principio-4 {
     margin-right: 40px;
 }
 
