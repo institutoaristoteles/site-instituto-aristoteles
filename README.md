@@ -45,3 +45,39 @@ Para que alguns desses avisos sejam corrigidos automaticamente ao salvar o arqui
     }
 }
 ```
+
+## Colaborando
+
+Para desenvolver uma nova tarefa:
+
+1. Clone o projeto, como descrito em [Rodando o projeto]()
+2. Crie uma nova branch, utilizando:
+   ```bash
+   git checkout -b <nome-da-nova-branch>   
+   ```
+   
+   É preferível que o nome da nova branch identifique do que se trata essa tarefa. Por exemplo: desenvolve-cabecalho, implementa-area-de-contato e etc.
+3. Desenvolve a sua tarefa normalmente.
+4. Após a conclusão da tarefa, faça o commit das suas alterações, caso não tenha feito ainda.
+   ```bash
+   git add .
+   git commit -m "<descrição do que foi feito>"
+   git push
+   ```
+   
+   Caso seja a primeira vez que você faça o push na nova branch, você precisará executar, para que a nova branch seja criada também no Github e você possa fazer push nela:
+   ```bash
+   git push -u origin <nome-da-nova-branch>
+   ```
+5. Crie uma PR (Pull Request) da sua nova branch para a branch principal (main).
+
+## Criando PR (Pull Request)
+
+1. Na página do projeto no Github, abra a aba **Pull Requests**.
+2. Clique em **New pull request**
+3. Em base, selecione a branch **main**
+4. Em compare, selecione a branch que você utilizou para desenvolver a nova tarefa
+5. Clique em **Create pull request**
+6. Preencha as informações como Título e descrição (O Github irá sugerir um título pra você com base no nome da branch)
+7. Confirme clicando em **Create pull request**.
+8. Peça a algum colega pra aprovar seu pull request.
