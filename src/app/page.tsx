@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
 
 export default async function Home() {
   return (
-    <main>
+    <main className="flex flex-col gap-24">
       <section>
         <div className="container flex items-center flex-wrap-reverse md:flex-nowrap ">
           <div className="flex flex-col gap-5 text-center items-center md:text-left md:items-start">
@@ -26,6 +26,27 @@ export default async function Home() {
 
           </div>
           <Image src="/images/hero.svg" width={500} height={500} alt="" className="w-full md:w-1/2" priority/>
+        </div>
+      </section>
+      <section>
+        <div className="container flex items-center justify-center text-center flex-wrap gap-5 md:flex-nowrap md:text-left">
+          <Image src="/images/about-us.svg" width={500} height={500} alt="" className="w-8/12 md:w-1/3"  priority/>
+          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5">
+            <h2>Quem somos?</h2>
+            <p>Somos uma instituição sem fins lucrativos que, através de campanhas, eventos e workshops, busca oferecer apoio gratuito a jovens brasileiros na área de saúde mental</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="container flex items-center justify-center text-center flex-wrap-reverse gap-5 md:flex-nowrap md:text-left">
+          
+          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5">
+            <h2>Nosso Propósito</h2>
+            <p>Nosso objetivo é ajudar cada vez mais jovens que estão sendo esquecidos pelo governo e sociedade, propondo ações em diversos setores, para que o tema seja discutido e tratado com seriedade.</p>
+            <p>Por meio de parcerias, buscamos apoiar jovens em regiões remotas, criar campanhas de conscientização e desenvolver projetos em locais públicos, a fim de difundir conhecimento sobre saúde mental e gerar impacto positivo.</p>
+            <p>Assim, em conexão com organizações civis, sociais e empresariais, procuramos criar uma rede de apoio para que cada vez mais pessoas tenham auxílio e incentivo para alcançarem seu melhor potencial.</p>
+          </div>
+          <Image src="/images/about-us.svg" width={500} height={500} alt="" className="w-8/12 md:w-1/2"  priority/>
         </div>
       </section>
     </main>
