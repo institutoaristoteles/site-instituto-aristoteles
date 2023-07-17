@@ -1,8 +1,21 @@
 import "./globals.css"
-import { Inter } from "next/font/google"
+import localFont from "next/font/local"
 import { PropsWithChildren } from "react"
 
-const inter = Inter({ subsets: ["latin"] })
+const montserrat = localFont({
+  src: [
+    {
+      path: "../assets/fonts/montserrat/Montserrat-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/montserrat/Montserrat-Bold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+})
 
 export const metadata = {
   title: "Instituto Aristóteles",
@@ -12,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }
