@@ -7,7 +7,7 @@ export default async function Home() {
     <main className="flex flex-col gap-24">
       <section>
         <div className="container flex items-center flex-wrap-reverse md:flex-nowrap ">
-          <div className="flex flex-col gap-5 text-center items-center md:text-left md:items-start">
+          <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
             <h2 className="text-xl text-dark-blue leading-normal md:leading-normal md:text-3xl">
               Um projeto idealizado para oferecer{" "}
               <strong>apoio gratuito</strong> a jovens brasileiros na área de{" "}
@@ -22,21 +22,21 @@ export default async function Home() {
 
             <div className="flex align-center gap-5">
               <Link
-                className="text-2xl text-dark-blue"
+                className="text-2xl xl:text-3xl text-dark-blue"
                 href="#"
                 target="_blank"
               >
                 <FaFacebook />
               </Link>
               <Link
-                className="text-2xl text-dark-blue"
+                className="text-2xl xl:text-3xl text-dark-blue"
                 href="#"
                 target="_blank"
               >
                 <FaInstagram />
               </Link>
               <Link
-                className="text-2xl text-dark-blue"
+                className="text-2xl xl:text-3xl text-dark-blue"
                 href="#"
                 target="_blank"
               >
