@@ -8,7 +8,7 @@ export default async function Home() {
       <section>
         <div className="container flex items-center flex-wrap-reverse md:flex-nowrap ">
           <div className="flex flex-col gap-5 text-center items-center md:text-left md:items-start">
-            <h2 className="text-xl text-dark-blue leading-normal md:text-3xl">
+            <h2 className="text-xl text-dark-blue leading-normal md:leading-normal md:text-3xl">
               Um projeto idealizado para oferecer{" "}
               <strong>apoio gratuito</strong> a jovens brasileiros na área de{" "}
               <strong>saúde mental</strong>
@@ -55,7 +55,7 @@ export default async function Home() {
         </div>
       </section>
       <section>
-        <div className="container flex items-center justify-center text-center flex-wrap gap-5 md:flex-nowrap md:text-left">
+        <div className="container flex items-center justify-center text-center flex-wrap gap-5 md:justify-stretch md:flex-nowrap md:text-left">
           <Image
             src="/images/about-us.svg"
             width={500}
@@ -64,7 +64,7 @@ export default async function Home() {
             className="w-8/12 md:w-1/3"
             priority
           />
-          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5">
+          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5 max-w-none">
             <h2>Quem somos?</h2>
             <p>
               Somos uma instituição sem fins lucrativos que, através de
@@ -96,7 +96,7 @@ export default async function Home() {
             </p>
           </div>
           <Image
-            src="/images/about-us.svg"
+            src="/images/our-purpose.svg"
             width={500}
             height={500}
             alt=""
