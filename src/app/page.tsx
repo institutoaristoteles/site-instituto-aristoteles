@@ -8,7 +8,7 @@ export default async function Home() {
       <section>
         <div className="container flex items-center flex-wrap-reverse md:flex-nowrap ">
           <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
-            <h2 className="text-xl text-dark-blue leading-normal md:leading-normal md:text-3xl">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-blue leading-normal md:leading-normal lg:leading-normal xl:leading-normal">
               Um projeto idealizado para oferecer{" "}
               <strong>apoio gratuito</strong> a jovens brasileiros na área de{" "}
               <strong>saúde mental</strong>
@@ -54,8 +54,9 @@ export default async function Home() {
           />
         </div>
       </section>
+
       <section>
-        <div className="container flex items-center justify-center text-center flex-wrap gap-5 md:justify-stretch md:flex-nowrap md:text-left">
+        <div className="container flex items-center justify-center flex-wrap gap-5 md:justify-stretch md:flex-nowrap">
           <Image
             src="/images/about-us.svg"
             width={500}
@@ -64,7 +65,7 @@ export default async function Home() {
             className="w-8/12 md:w-1/3"
             priority
           />
-          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5 max-w-none">
+          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5 prose-headings:text-center prose-headings:md:text-left prose-p:text-justify max-w-none">
             <h2>Quem somos?</h2>
             <p>
               Somos uma instituição sem fins lucrativos que, através de
@@ -74,9 +75,10 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
       <section>
-        <div className="container flex items-center justify-center text-center flex-wrap-reverse gap-5 md:flex-nowrap md:text-left">
-          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5">
+        <div className="container flex items-center justify-center flex-wrap-reverse gap-5 md:flex-nowrap">
+          <div className="prose prose-headings:text-dark-blue prose-headings:mb-5 prose-headings:text-center prose-headings:md:text-left prose-p:text-justify max-w-none">
             <h2>Nosso Propósito</h2>
             <p>
               Nosso objetivo é ajudar cada vez mais jovens que estão sendo
