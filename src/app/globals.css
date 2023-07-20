@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-    @apply transition-all hover:scale-105;
-}
-
 .prose {
     @apply max-w-none;
 }

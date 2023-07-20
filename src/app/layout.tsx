@@ -2,6 +2,8 @@ import "./globals.css"
 import "react-loading-skeleton/dist/skeleton.css"
 import localFont from "next/font/local"
 import { PropsWithChildren } from "react"
+import Header from "@/shared/components/header"
+import Footer from "@/shared/components/footer"
 
 const montserrat = localFont({
   src: [
@@ -27,7 +29,11 @@ export const metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-br">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

@@ -1,19 +1,21 @@
 "use client"
 
-import { memo, PropsWithChildren } from "react"
-import Link from "next/link"
+import React, { ButtonHTMLAttributes, memo, PropsWithChildren } from "react"
+import { twMerge } from "tailwind-merge"
 
-type ButtonProps = PropsWithChildren & {
-  href: string
-}
+type ButtonProps = PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>
 
-function LinkButton({ href, children, ...props }: ButtonProps) {
+function LinkButton({ children, ...props }: ButtonProps) {
   return (
-    <Link href={href}>
-      <button className="bg-light-green text-white text-base font-bold rounded-full px-10 py-2">
-        {children}
-      </button>
-    </Link>
+    <button
+      {...props}
+      className={twMerge(
+        "bg-light-green text-white font-bold rounded-full px-5 py-2 transition-all hover:scale-105",
+        props.className,
+      )}
+    >
+      {children}
+    </button>
   )
 }
 
