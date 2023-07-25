@@ -18,6 +18,11 @@ module.exports = {
         xl: 0,
       },
     },
+    extend: {
+      backgroundImage: {
+        "home-section": "url('/images/home-bg.svg')",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 }
