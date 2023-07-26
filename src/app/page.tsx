@@ -94,7 +94,7 @@ export default async function Home() {
       <section className="prose py-6 md:py-12">
         <div className="container flex items-center justify-center flex-wrap-reverse gap-5 md:gap-20 md:flex-nowrap">
           <div>
-            <h2 className="font-bold text-2xl text-dark-blue mb-5 text-center md:text-left">
+            <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left">
               Nosso Propósito
             </h2>
 
