@@ -22,6 +22,13 @@ module.exports = {
       backgroundImage: {
         "home-section": "url('/images/home-bg.svg')",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: "m-0",
+          },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
