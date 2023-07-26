@@ -1,8 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import Button from "@/shared/components/button"
 
-export default async function Home() {
+async function Home() {
   return (
     <main className="flex flex-col">
       <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom pt-24">
@@ -14,12 +15,7 @@ export default async function Home() {
               <strong>saúde mental</strong>
             </h2>
 
-            <Link
-              href="#"
-              className="bg-light-green text-white text-base font-bold rounded-full px-10 py-2"
-            >
-              Saiba Mais
-            </Link>
+            <Button href="#">Saiba Mais</Button>
 
             <div className="flex align-center gap-5">
               <Link
@@ -133,7 +129,7 @@ export default async function Home() {
             Princípios
           </h2>
 
-          <div className="flex justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center justify-items-center text-center">
               <Image
                 src="/images/justice.svg"
@@ -208,3 +204,5 @@ export default async function Home() {
     </main>
   )
 }
+
+export default Home
