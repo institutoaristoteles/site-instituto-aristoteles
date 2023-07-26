@@ -61,7 +61,7 @@ export default async function Home() {
             width={500}
             height={500}
             alt=""
-            className="mx-auto w-8/12"
+            className="mx-auto w-8/12 md:w-1/2 lg:w-8/12"
             priority
           />
         </div>
@@ -133,7 +133,7 @@ export default async function Home() {
             Princípios
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="flex justify-center">
             <div className="flex flex-col items-center justify-items-center text-center">
               <Image
                 src="/images/justice.svg"
