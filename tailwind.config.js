@@ -1,3 +1,13 @@
+const darkBlue = "#363A6C"
+const lightGreen = "#36BDCC"
+const white = "#fff"
+
+const colors = {
+  darkBlue,
+  lightGreen,
+  white,
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,9 +17,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      "dark-blue": "#363A6C",
-      "light-green": "#36BDCC",
-      white: "#fff",
+      ...colors,
     },
     container: {
       center: true,
