@@ -3,7 +3,7 @@ const lightGreen = "#36BDCC"
 const white = "#fff"
 
 const colors = {
-  darkBlue,
+  "dark-blue": darkBlue,
   "light-green": lightGreen,
   white,
 }
