@@ -9,7 +9,7 @@ type ButtonProps = PropsWithChildren & {
 
 function LinkButton({ href, children, ...props }: ButtonProps) {
   return (
-    <Link {...props} href={href}>
+    <Link href={href}>
       <button className="bg-light-green text-white text-base font-bold rounded-full px-10 py-2">
         {children}
       </button>
