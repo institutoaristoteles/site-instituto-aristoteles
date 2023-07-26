@@ -4,7 +4,7 @@ const white = "#fff"
 
 const colors = {
   darkBlue,
-  lightGreen,
+  "light-green": lightGreen,
   white,
 }
 
