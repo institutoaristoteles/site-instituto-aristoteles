@@ -1,4 +1,6 @@
-# site-instituto-aristoteles
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d55de0f3-1dad-448e-b3a0-401748384394/deploy-status)](https://app.netlify.com/sites/instituto-aristoteles/deploys)
+
+# Site Instituto Aristóteles
 
 ## Sobre
 
