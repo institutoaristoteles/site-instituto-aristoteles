@@ -9,6 +9,7 @@ export type NotionExternalFile = Extract<Cover, { type: "external" }>
 
 export type PostProps = {
   Title: Property<"title">
+  Description: Property<"rich_text">
 }
 
 export interface Post {
