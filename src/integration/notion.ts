@@ -30,6 +30,7 @@ const mapNotionPageToPost = (page: PageObjectResponse) => {
     authorId: page.created_by.id,
     createdTime: new Date(page.created_time),
     lastEditedTime: new Date(page.last_edited_time),
+    summary: pageProps.Description.rich_text[0].plain_text,
   }
 }
 
@@ -53,9 +54,29 @@ export const fetchPublishedPosts = cache(async (): Promise<Post[]> => {
   return results.map(mapNotionPageToPost)
 })
 
-export const fetchPostById = cache(async (pageId: string) => {
-  const page = await notion.pages.retrieve({ page_id: pageId })
-  return mapNotionPageToPost(page as PageObjectResponse)
+export const fetchPostBySlug = cache(async (slug: string) => {
+  const pages = await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+    filter: {
+      and: [
+        {
+          property: "Status",
+          status: { equals: "Publicado" },
+        },
+        {
+          property: "Slug",
+          rich_text: {
+            equals: slug,
+          },
+        },
+      ],
+    },
+  })
+  const page = pages.results[0]
+
+  if (page) {
+    return mapNotionPageToPost(page as PageObjectResponse)
+  }
 })
 
 export const getPageContent = cache(async (pageId: string) => {
