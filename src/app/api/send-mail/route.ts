@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import * as nodemailer from "nodemailer"
+import { TransportOptions } from "nodemailer"
 
 interface RequestBodyDto {
   name: string
@@ -18,7 +19,7 @@ const transporter = nodemailer.createTransport({
       pass: process.env.SMTP_PASSWORD,
     },
   },
-})
+} as TransportOptions)
 
 const formatContent = (requestBody: RequestBodyDto) => `
   <b>Contato através do formulário de contato do site</b><br/>
