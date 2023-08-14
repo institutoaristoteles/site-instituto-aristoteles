@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Post } from "@/integration/types"
 import PostCard from "@/shared/components/post-card"
 import { fetchPosts } from "@/integration/api"
+import { ImSpinner11 } from "react-icons/im"
 
 function PostsListing(props: {
   initialPosts: Post[]
@@ -17,6 +18,18 @@ function PostsListing(props: {
   const [isLoading, setIsLoading] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
+  const loadPosts = async () => {
+    const data = await fetchPosts({
+      startCursor: cursor,
+      pageSize: props.pageSize,
+    })
+
+    setPosts([...posts, ...data.results])
+    setCursor(data.nextCursor)
+    setHasMore(data.hasMore)
+    setIsLoading(false)
+  }
+
   useEffect(() => {
     const options = {
       root: null,
@@ -28,14 +41,7 @@ function PostsListing(props: {
       const target = entries[0]
       if (target.isIntersecting && hasMore) {
         setIsLoading(true)
-        const data = await fetchPosts({
-          startCursor: cursor,
-          pageSize: props.pageSize,
-        })
-        setPosts([...posts, ...data.results])
-        setCursor(data.nextCursor)
-        setHasMore(data.hasMore)
-        setIsLoading(false)
+        await loadPosts()
       }
     }, options)
 
@@ -46,22 +52,26 @@ function PostsListing(props: {
     return () => {
       observer.disconnect()
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasMore, cursor])
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col">
       <div className="grid md:grid-cols-3 gap-5">
         {posts.map((post) => (
           <PostCard post={post} key={post.id} />
         ))}
       </div>
 
-      <div ref={ref}>
+      <div className="flex flex-col items-center gap-2 py-10" ref={ref}>
         {isLoading && (
-          <div className="flex items-center justify-center">
-            Carregando artigos...
-          </div>
+          <>
+            <ImSpinner11 className="animate-spin text-dark-blue" />
+            <span className="text-dark-blue opacity-80 text-xs">
+              Carregando mais...
+            </span>
+          </>
         )}
       </div>
     </div>

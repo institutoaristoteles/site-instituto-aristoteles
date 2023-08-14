@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
-import Button from "@/shared/components/button"
 
 async function Home() {
   return (
@@ -14,8 +13,6 @@ async function Home() {
               <strong>apoio gratuito</strong> a jovens brasileiros na área de{" "}
               <strong>saúde mental</strong>
             </h2>
-
-            <Button href="#">Saiba Mais</Button>
 
             <div className="flex align-center gap-5">
               <Link
