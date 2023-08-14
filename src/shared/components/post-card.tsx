@@ -15,16 +15,17 @@ function PostCard({ post }: { post: Post }) {
   return (
     <article className="flex flex-col border border-[#e7e7e7] overflow-hidden bg-white">
       {post.image && (
-        <Link href={postUrl}>
-          <figure className="w-full h-52 overflow-hidden">
-            <Image
-              src={post.image}
-              alt={`Imagem do artigo: ${post.title}}`}
-              width={400}
-              height={400}
-              className="w-full h-full object-cover transition-all hover:scale-110"
-            />
-          </figure>
+        <Link
+          href={postUrl}
+          className="w-full h-32 md:h-52 hover:scale-100 overflow-hidden"
+        >
+          <Image
+            src={post.image}
+            alt={`Imagem do artigo: ${post.title}}`}
+            width={400}
+            height={400}
+            className="w-full h-full object-cover transition-all hover:opacity-95"
+          />
         </Link>
       )}
 

@@ -10,7 +10,7 @@ async function Blog() {
   return (
     <main>
       <div className="container">
-        <h2 className="text-3xl font-bold text-dark-blue mb-5">Blog</h2>
+        <h2 className="text-3xl font-bold text-dark-blue py-5">Blog</h2>
         <PostsListing
           initialPosts={initialPosts.results}
           hasMore={initialPosts.hasMore}
