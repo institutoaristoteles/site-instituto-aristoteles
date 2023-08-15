@@ -1,8 +1,19 @@
+const darkBlue = "#363A6C"
+const lightGreen = "#36BDCC"
+const white = "#fff"
+
+const colors = {
+  "dark-blue": darkBlue,
+  "light-green": lightGreen,
+  white,
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -12,12 +23,25 @@ module.exports = {
       blue: "#3672cc",
       "light-green": "#36BDCC",
       white: "#fff",
+      ...colors,
     },
     container: {
       center: true,
       padding: {
         DEFAULT: "1rem",
         xl: 0,
+      },
+    },
+    extend: {
+      backgroundImage: {
+        "home-section": "url('/images/home-bg.svg')",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: "m-0",
+          },
+        },
       },
     },
   },
