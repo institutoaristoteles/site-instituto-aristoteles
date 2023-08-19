@@ -19,7 +19,7 @@ async function Home() {
       <Script
         id="ngo-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: schema }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         key="product-jsonld"
       />
 
