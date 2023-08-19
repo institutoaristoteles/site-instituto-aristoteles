@@ -1,10 +1,28 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import { NGO } from "schema-dts"
+import Script from "next/script"
 
 async function Home() {
+  /** @type {import('schema-dts').Article} */
+  const schema: NGO = {
+    "@type": "NGO",
+    name: "Instituto Aristoteles",
+    image:
+      "https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fbc684673-302a-43e2-b6f7-9e0a85f79cfd%2F130166154.jpg?table=block&id=05cdebe4-7df1-4a8f-ac08-5700b57e1578&spaceId=f5abbaee-0450-4bd0-be59-3e292c451afa&width=2000&userId=8e971664-330f-4eea-b68a-d0e3f37dd0f0&cache=v2",
+    foundingDate: new Date().toISOString(),
+  }
+
   return (
     <main className="flex flex-col">
+      <Script
+        id="ngo-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: schema }}
+        key="product-jsonld"
+      />
+
       <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom pt-24">
         <div className="container flex items-center flex-wrap md:flex-nowrap gap-10">
           <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
