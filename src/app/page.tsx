@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 
 async function Home() {
   return (
@@ -17,15 +17,7 @@ async function Home() {
             <div className="flex align-center gap-5">
               <Link
                 className="text-2xl xl:text-3xl text-dark-blue"
-                href="#"
-                target="_blank"
-              >
-                <FaFacebook />
-              </Link>
-
-              <Link
-                className="text-2xl xl:text-3xl text-dark-blue"
-                href="#"
+                href="https://www.instagram.com/institutoaristoteles/"
                 target="_blank"
               >
                 <FaInstagram />
@@ -33,7 +25,7 @@ async function Home() {
 
               <Link
                 className="text-2xl xl:text-3xl text-dark-blue"
-                href="#"
+                href="https://br.linkedin.com/company/instituto-arist%C3%B3teles"
                 target="_blank"
               >
                 <FaLinkedin />
@@ -41,7 +33,7 @@ async function Home() {
 
               <Link
                 className="text-2xl xl:text-3xl text-dark-blue"
-                href="#"
+                href="https://www.tiktok.com/@institutoaristoteles"
                 target="_blank"
               >
                 <FaTiktok />
