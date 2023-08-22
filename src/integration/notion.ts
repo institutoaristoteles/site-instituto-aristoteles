@@ -10,13 +10,13 @@ import {
   PostProps,
 } from "@/integration/types"
 import { Client } from "@notionhq/client"
-import { cache } from "react"
-import { NotionToMarkdown } from "notion-to-md"
-import showdown from "showdown"
 import {
   PageObjectResponse,
   PersonUserObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints"
+import { NotionToMarkdown } from "notion-to-md"
+import { cache } from "react"
+import showdown from "showdown"
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN })
 const n2m = new NotionToMarkdown({ notionClient: notion })
@@ -65,7 +65,7 @@ export const getPosts = cache(async (params: GetPostsParams) => {
   } as Paginated<Post>
 })
 
-export const getPostsBySlug = cache(async (slug: string) => {
+export const getPostBySlug = cache(async (slug: string) => {
   const pages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {

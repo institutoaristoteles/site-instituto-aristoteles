@@ -51,7 +51,7 @@ function Header() {
           className="font-bold text-2x1 text-white flex items-center"
         >
           <Image
-            src="./logo1.svg"
+            src="/logo1.svg"
             alt="Instituto Aristóteles logo"
             width={50}
             height={100}
