@@ -16,9 +16,14 @@ const schema = object<RequestBodyDto>({
   subject: string().required("Este campo é obrigatório"),
 })
 
+const subjects = {
+  other: "Outro",
+  volunteer: "Quero ser voluntário",
+}
+
 const initialValues: RequestBodyDto = {
   name: "",
-  subject: "Teste",
+  subject: subjects.other,
   message: "",
   email: "",
 }
@@ -47,15 +52,18 @@ export default function ContactForm() {
 
   return (
     <form
-      className="flex flex-col items-start gap-5"
+      className="flex flex-col items-start gap-3"
       onSubmit={handleSubmit(submitHandler)}
     >
       <div className="w-full flex flex-col">
+        <label htmlFor="name" className="text-sm">
+          Nome:
+        </label>
         <input
           type="text"
           aria-label="Nome"
           placeholder="Digite seu nome"
-          className="p-2 rounded-md border w-full max-w-xl data-[invalid]:border-red"
+          className="p-2 rounded-md border border-[#ccc] w-full max-w-xl data-[invalid]:border-red"
           {...field("name")}
         />
         {!isValid("name") && (
@@ -64,11 +72,14 @@ export default function ContactForm() {
       </div>
 
       <div className="w-full flex flex-col">
+        <label htmlFor="email" className="text-sm">
+          E-mail:
+        </label>
         <input
           type="email"
           aria-label="E-mail"
           placeholder="Digite um endereço de e-mail válido"
-          className="p-2 rounded-md border w-full max-w-xl data-[invalid]:border-red"
+          className="p-2 rounded-md border border-[#ccc] w-full max-w-xl data-[invalid]:border-red"
           {...field("email")}
         />
         {!isValid("email") && (
@@ -77,10 +88,33 @@ export default function ContactForm() {
       </div>
 
       <div className="w-full flex flex-col">
+        <label htmlFor="subject" className="text-sm">
+          Assunto:
+        </label>
+        <select
+          className="p-2 rounded-md border border-[#ccc] w-full max-w-xl data-[invalid]:border-red"
+          aria-label="Assunto"
+          {...field("subject")}
+        >
+          {Object.values(subjects).map((value) => (
+            <option value={value} key={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+        {!isValid("subject") && (
+          <small className="text-red text-xs mt-1">{form.errors.subject}</small>
+        )}
+      </div>
+
+      <div className="w-full flex flex-col">
+        <label htmlFor="message" className="text-sm">
+          Mensagem:
+        </label>
         <textarea
           aria-label="Mensagem"
           placeholder="Digite sua mensagem"
-          className="p-2 rounded-md border w-full max-w-xl data-[invalid]:border-red"
+          className="p-2 rounded-md border border-[#ccc] w-full max-w-xl data-[invalid]:border-red"
           {...field("message")}
         />
         {!isValid("message") && (
