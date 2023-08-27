@@ -1,16 +1,25 @@
 "use client"
 
 import React, { ButtonHTMLAttributes, memo, PropsWithChildren } from "react"
-import { twMerge } from "tailwind-merge"
+import cn from "classnames"
 
 type ButtonProps = PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>
 
-function LinkButton({ children, ...props }: ButtonProps) {
+function Button({ children, ...props }: ButtonProps) {
   return (
     <button
       {...props}
-      className={twMerge(
-        "bg-light-green text-white font-bold rounded-full px-5 py-2 transition-all hover:scale-105",
+      className={cn(
+        `
+        bg-light-green
+        text-white
+        font-bold
+        rounded-full
+        px-5
+        py-2
+        transition-all
+        hover:scale-105
+      `,
         props.className,
       )}
     >
@@ -19,4 +28,4 @@ function LinkButton({ children, ...props }: ButtonProps) {
   )
 }
 
-export default memo(LinkButton)
+export default memo(Button)
