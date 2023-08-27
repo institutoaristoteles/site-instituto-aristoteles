@@ -1,11 +1,9 @@
-const darkBlue = "#363A6C"
-const lightGreen = "#36BDCC"
-const white = "#fff"
-
 const colors = {
-  "dark-blue": darkBlue,
-  "light-green": lightGreen,
-  white,
+  "dark-blue": "#363A6C",
+  "light-green": "#36BDCC",
+  green: "limegreen",
+  white: "#fff",
+  red: "red",
 }
 
 /** @type {import('tailwindcss').Config} */

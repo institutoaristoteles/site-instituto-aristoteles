@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import * as nodemailer from "nodemailer"
 import { TransportOptions } from "nodemailer"
 
-interface RequestBodyDto {
+export interface RequestBodyDto {
   name: string
   email: string
   subject: string

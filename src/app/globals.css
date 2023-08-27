@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-.prose {
-    @apply max-w-none;
+@layer base {
+    html, body {
+        @apply h-full;
+    }
+
+    body {
+        @apply grid grid-rows-[auto_1fr_auto];
+    }
 }
 
-.prose img {
-    @apply m-0;
+@layer components {
+    .invalid {
+        @apply border-red;
+    }
+
+    .prose {
+        @apply max-w-none;
+    }
+
+    .prose img {
+        @apply m-0;
+    }
 }
