@@ -125,7 +125,7 @@ export default function ContactForm() {
       <Button
         type="submit"
         disabled={!form.isValid || isLoading}
-        className="disabled:grayscale disabled:opacity-50 disabled:hover:scale-100"
+        className="disabled:grayscale disabled:opacity-50 disabled:hover:scale-100 w-full md:w-auto"
       >
         {isLoading ? "Enviando..." : "Enviar"}
       </Button>
