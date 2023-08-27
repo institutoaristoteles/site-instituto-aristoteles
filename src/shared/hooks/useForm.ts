@@ -48,7 +48,9 @@ export default function useForm<T extends Record<string, any>>(
   const field = useCallback(
     (
       name: keyof T & string,
-    ): InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> => {
+    ): InputHTMLAttributes<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    > => {
       return {
         name,
         id: name,
