@@ -6,6 +6,7 @@ import useForm from "@/shared/hooks/useForm"
 import { RequestBodyDto } from "@/app/api/send-mail/route"
 import { object, string } from "yup"
 import { sendMail } from "@/integration/api"
+import toast from "react-hot-toast"
 
 const schema = object<RequestBodyDto>({
   name: string().required("Este campo é obrigatório"),
@@ -40,12 +41,12 @@ export default function ContactForm() {
     setIsLoading(true)
 
     try {
-      const response = await sendMail(values)
-      console.log(response)
-    } catch (e) {
-      console.error(e)
-    } finally {
+      await sendMail(values)
+      toast.success("Mensagem enviada com sucesso!")
       form.resetForm()
+    } catch (e) {
+      toast.error("Ocorreu um erro ao enviar a mensagem.")
+    } finally {
       setIsLoading(false)
     }
   }

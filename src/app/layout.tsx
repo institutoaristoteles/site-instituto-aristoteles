@@ -4,6 +4,7 @@ import localFont from "next/font/local"
 import { PropsWithChildren } from "react"
 import Header from "@/shared/components/header"
 import Footer from "@/shared/components/footer"
+import { Toaster } from "react-hot-toast"
 
 const montserrat = localFont({
   src: [
@@ -33,6 +34,17 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Header />
         {children}
         <Footer />
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+            },
+          }}
+        />
       </body>
     </html>
   )
