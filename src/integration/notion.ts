@@ -90,7 +90,7 @@ export const getPostBySlug = cache(async (slug: string) => {
   }
 })
 
-export const getPageContent = cache(async (pageId: string) => {
+export const getPostContent = cache(async (pageId: string) => {
   const mdBlocks = await n2m.pageToMarkdown(pageId)
   const markdown = await n2m.toMarkdownString(mdBlocks)
   return mdConverter.makeHtml(markdown.parent)
