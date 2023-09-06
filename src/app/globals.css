@@ -25,3 +25,9 @@
         @apply m-0;
     }
 }
+
+@layer utilities {
+    .full-width {
+        @apply w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] max-w-none;
+    }
+}
