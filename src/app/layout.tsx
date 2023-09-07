@@ -24,7 +24,7 @@ const montserrat = localFont({
 })
 
 export function generateMetadata(): Metadata {
-  const logoUrl = process.env.URL + "/logo1.svg"
+  const logoUrl = process.env.URL + "/logo.jpg"
 
   return {
     title: "Instituto Aristóteles",

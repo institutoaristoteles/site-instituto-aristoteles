@@ -48,7 +48,7 @@ function Header() {
       <div className="container flex items-center justify-between py-2">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo1.svg"
+            src="/logo.svg"
             alt="Instituto Aristóteles logo"
             width={100}
             height={100}
