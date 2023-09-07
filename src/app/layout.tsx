@@ -6,6 +6,7 @@ import Header from "@/shared/components/header"
 import Footer from "@/shared/components/footer"
 import { Toaster } from "react-hot-toast"
 import { Analytics } from "@/app/analytics"
+import { Metadata } from "next"
 
 const montserrat = localFont({
   src: [
@@ -22,10 +23,13 @@ const montserrat = localFont({
   ],
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Instituto Aristóteles",
   description:
     "Instituição sem fins lucrativos que, através de campanhas, eventos e workshops, busca oferecer apoio gratuito a jovens brasileiros na área de saúde mental",
+  verification: {
+    google: process.env.GOOGLE_VERIFICATION_CONTENT,
+  },
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
