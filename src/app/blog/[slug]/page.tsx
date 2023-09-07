@@ -1,12 +1,31 @@
-import { getPostBySlug, getPostContent } from "@/integration/notion"
+import {
+  getAuthorById,
+  getPostBySlug,
+  getPostContent,
+} from "@/integration/notion"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import PostAuthorBadge from "@/shared/components/post-author-badge"
+import { Metadata } from "next"
+import { Article, WithContext } from "schema-dts"
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
   dateStyle: "medium",
   timeStyle: "short",
 })
+
+export async function generateMetadata(props: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const post = await getPostBySlug(props.params.slug)
+
+  return {
+    title: post?.title + " | Instituto Aristóteles",
+    openGraph: {
+      images: post?.image ? [post.image] : [],
+    },
+  }
+}
 
 export default async function PostPage(props: { params: { slug: string } }) {
   const post = await getPostBySlug(props.params.slug)
@@ -14,6 +33,25 @@ export default async function PostPage(props: { params: { slug: string } }) {
   if (!post) return notFound()
 
   const content = await getPostContent(post.id)
+  const author = await getAuthorById(post.authorId)
+
+  const jsonLd: WithContext<Article> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    name: post.title,
+    image: post.image,
+    description: post.description,
+    headline: post.title,
+    author: {
+      "@type": "Person",
+      name: author.name ?? undefined,
+      image: author.avatar ?? undefined,
+      email: author.email ?? undefined,
+      url: author.email,
+    },
+    dateCreated: post.createdTime.toISOString(),
+    dateModified: post.lastEditedTime.toISOString(),
+  }
 
   return (
     <article>
@@ -49,6 +87,11 @@ export default async function PostPage(props: { params: { slug: string } }) {
         <div
           className="prose prose-p:text-justify prose-p:hyphens-auto prose-headings:text-dark-blue prose-headings:font-normal"
           dangerouslySetInnerHTML={{ __html: content }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </div>
     </article>
