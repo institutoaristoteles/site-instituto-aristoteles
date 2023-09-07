@@ -6,7 +6,7 @@ import { fetchAuthorById } from "@/integration/api"
 import useSWR from "swr"
 import Skeleton from "react-loading-skeleton"
 
-const PostAuthorSkeleton = () => (
+export const PostAuthorSkeleton = () => (
   <div className="flex gap-2 items-center">
     <Skeleton circle height={24} width={24} />
     <span className="text-xs">
