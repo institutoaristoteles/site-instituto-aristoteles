@@ -13,7 +13,11 @@ function PostCard({ post, priority }: { post: Post; priority: boolean }) {
   })
 
   return (
-    <article className="flex flex-col border border-[#e7e7e7] overflow-hidden bg-white">
+    <article
+      className="flex flex-col border border-[#e7e7e7] overflow-hidden bg-white"
+      aria-setsize={-1}
+      aria-label={post.title}
+    >
       {post.image && (
         <Link
           href={postUrl}

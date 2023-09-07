@@ -57,8 +57,12 @@ function PostsListing(props: {
   }, [hasMore, cursor])
 
   return (
-    <div className="flex flex-col">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <section className="flex flex-col">
+      <section
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        role="feed"
+        aria-busy={isLoading}
+      >
         {posts.map((post, index) => (
           <PostCard
             post={post}
@@ -66,7 +70,7 @@ function PostsListing(props: {
             priority={index < props.pageSize}
           />
         ))}
-      </div>
+      </section>
 
       <div className="flex flex-col items-center gap-2 py-10" ref={ref}>
         {isLoading && (
@@ -78,7 +82,7 @@ function PostsListing(props: {
           </>
         )}
       </div>
-    </div>
+    </section>
   )
 }
 
