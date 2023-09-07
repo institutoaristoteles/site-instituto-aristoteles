@@ -4,7 +4,7 @@ import { Author, GetPostsParams, Paginated, Post } from "@/integration/types"
 import { RequestBodyDto } from "@/app/api/send-mail/route"
 
 const apiClient = axios.create({
-  baseURL: process.env.API_HOST ?? "/api",
+  baseURL: process.env.URL ?? "/api",
 })
 
 export const fetchPosts = React.cache(async (params: GetPostsParams) => {
