@@ -4,7 +4,7 @@ import Image from "next/image"
 import PostAuthorBadge from "@/shared/components/post-author-badge"
 import React, { memo } from "react"
 
-function PostCard({ post }: { post: Post }) {
+function PostCard({ post, priority }: { post: Post; priority: boolean }) {
   const postUrl = `/blog/${post.slug}`
 
   const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
@@ -21,9 +21,10 @@ function PostCard({ post }: { post: Post }) {
         >
           <Image
             src={post.image}
-            alt={`Imagem do artigo: ${post.title}}`}
+            alt={`Imagem do artigo: ${post.title}`}
             width={400}
             height={400}
+            priority={priority}
             className="w-full h-full object-cover transition-all hover:opacity-95"
           />
         </Link>

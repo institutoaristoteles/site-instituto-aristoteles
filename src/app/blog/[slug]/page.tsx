@@ -55,17 +55,17 @@ export default async function PostPage(props: { params: { slug: string } }) {
 
   return (
     <article>
-      <div className="container flex flex-col gap-5 md:gap-10 max-w-4xl">
-        {post.image && (
-          <Image
-            src={post.image}
-            alt=""
-            width={3000}
-            height={3000}
-            className="max-h-[250px] object-cover object-center full-width"
-          />
-        )}
+      {post.image && (
+        <Image
+          src={post.image}
+          alt=""
+          width={3000}
+          height={3000}
+          className="w-full max-h-[250px] object-cover object-center mb-5 md:mb-10"
+        />
+      )}
 
+      <div className="container flex flex-col gap-5 md:gap-10 max-w-prose">
         <header className="flex flex-col gap-5">
           <h1 className="text-2xl text-dark-blue font-bold xl:text-3xl">
             {post.title}

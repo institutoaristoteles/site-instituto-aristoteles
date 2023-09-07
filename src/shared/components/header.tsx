@@ -12,7 +12,7 @@ const menu = tv({
     items-center
     justify-center
     flex-col md:flex-row
-    gap-10 md:gap-5
+    gap-10
     fixed md:static
     bg-dark-blue bg-opacity-90 md:bg-none
     backdrop-blur md:backdrop-blur-0
@@ -46,17 +46,17 @@ function Header() {
   return (
     <header className="shadow-md w-full sticky top-0 left-0 bg-dark-blue z-10">
       <div className="container flex items-center justify-between py-2">
-        <Link
-          href="/"
-          className="font-bold text-2x1 text-white flex items-center"
-        >
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo1.svg"
             alt="Instituto Aristóteles logo"
-            width={50}
+            width={100}
             height={100}
+            className="h-14 w-14"
           />{" "}
-          <span className="ml-2">| Instituto Aristoteles</span>
+          <span className="ml-2 font-bold text-2x1 text-white">
+            | Instituto Aristoteles
+          </span>
         </Link>
 
         <button

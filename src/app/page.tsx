@@ -19,6 +19,7 @@ async function Home() {
                 className="text-2xl xl:text-3xl text-dark-blue"
                 href="https://www.instagram.com/institutoaristoteles/"
                 target="_blank"
+                aria-label="Clique aqui para visitar nosso perfil no Instagram"
               >
                 <FaInstagram />
               </Link>
@@ -27,6 +28,7 @@ async function Home() {
                 className="text-2xl xl:text-3xl text-dark-blue"
                 href="https://br.linkedin.com/company/instituto-arist%C3%B3teles"
                 target="_blank"
+                aria-label="Clique aqui para visitar nosso perfil no Linkedin"
               >
                 <FaLinkedin />
               </Link>
@@ -35,6 +37,7 @@ async function Home() {
                 className="text-2xl xl:text-3xl text-dark-blue"
                 href="https://www.tiktok.com/@institutoaristoteles"
                 target="_blank"
+                aria-label="Clique aqui para visitar nosso perfil no TikTok"
               >
                 <FaTiktok />
               </Link>
@@ -56,8 +59,8 @@ async function Home() {
         <div className="container flex items-center justify-center flex-wrap gap-5 md:gap-20 md:justify-stretch md:flex-nowrap">
           <Image
             src="/images/idea.svg"
-            width={500}
-            height={500}
+            width={260}
+            height={260}
             alt=""
             className="w-1/3 md:w-1/6"
             priority
@@ -103,8 +106,8 @@ async function Home() {
 
           <Image
             src="/images/target.svg"
-            width={500}
-            height={500}
+            width={260}
+            height={260}
             alt=""
             className="w-1/3 md:w-1/6"
             priority
@@ -182,8 +185,8 @@ async function Home() {
 
             <Image
               src="/images/shuttle.svg"
-              width={500}
-              height={500}
+              width={200}
+              height={200}
               alt=""
               className="w-1/3 md:w-1/6"
             />
