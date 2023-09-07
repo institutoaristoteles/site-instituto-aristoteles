@@ -22,11 +22,30 @@ export async function generateMetadata({
   params: { slug },
 }: PostPageProps): Promise<Metadata> {
   const post = await getPostBySlug(slug)
+  if (!post) return {}
+
+  const author = await getAuthorById(post.authorId)
+
+  const common = {
+    title: post.title,
+    images: post.image ? [post.image] : [],
+    description: post.description,
+  }
 
   return {
-    title: post?.title + " | Instituto Aristóteles",
+    title: post.title + " | Instituto Aristóteles",
     openGraph: {
-      images: post?.image ? [post.image] : [],
+      ...common,
+      type: "article",
+      url: process.env.URL + "/blog/" + post.slug,
+      siteName: "Instituto Aristóteles",
+      publishedTime: post.createdTime.toISOString(),
+      authors: author?.name,
+    },
+    twitter: {
+      card: "summary",
+      ...common,
+      creator: author?.name || undefined,
     },
   }
 }
