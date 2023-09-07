@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import Script from "next/script";
 
 async function Home() {
   return (
@@ -193,6 +194,15 @@ async function Home() {
           </div>
         </div>
       </section>
+
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Y25S0EWKPS"></Script>
+      <Script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Y25S0EWKPS');
+      </Script>
     </main>
   )
 }
