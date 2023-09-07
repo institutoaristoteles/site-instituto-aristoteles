@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react"
 import Header from "@/shared/components/header"
 import Footer from "@/shared/components/footer"
 import { Toaster } from "react-hot-toast"
-import Script from "next/script"
+import { Analytics } from "@/app/analytics"
 
 const montserrat = localFont({
   src: [
@@ -48,21 +48,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         />
       </body>
 
-      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-Y25S0EWKPS"
-        strategy="beforeInteractive"
-      ></Script>
-
-      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-      <Script id="google-analytics" strategy="beforeInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-Y25S0EWKPS');`}
-      </Script>
+      <Analytics />
     </html>
   )
 }

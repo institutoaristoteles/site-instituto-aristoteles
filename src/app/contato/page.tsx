@@ -1,5 +1,10 @@
 import React from "react"
 import ContactForm from "@/app/contato/contact-form"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Contato | Instituto Aristóteles",
+}
 
 function Contact() {
   return (

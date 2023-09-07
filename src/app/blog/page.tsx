@@ -1,7 +1,12 @@
 import PostsListing from "@/shared/components/posts-listing"
 import { getPosts } from "@/integration/notion"
+import { Metadata } from "next"
 
 export const dynamic = "force-dynamic"
+
+export const metadata: Metadata = {
+  title: "Blog | Instituto Aristóteles",
+}
 
 async function Blog() {
   const pageSize = 15
