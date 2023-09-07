@@ -1,5 +1,6 @@
 import React from "react"
-import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs"
+import Link from "next/link"
+import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 
 function Footer() {
   return (
@@ -10,18 +11,32 @@ function Footer() {
         </h2>
 
         <div className="flex justify-center gap-5 md:gap-10">
-          <a href="/" target="_blank">
-            <BsFacebook size={30} />
-          </a>
-          <a href="https://www.instagram.com/institutoaristoteles/">
-            <BsInstagram size={30} />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/instituto-arist%C3%B3teles/?originalSubdomain=br"
+          <Link
+            className="text-xl"
+            href="https://www.instagram.com/institutoaristoteles/"
             target="_blank"
+            aria-label="Clique aqui para visitar nosso perfil no Instagram"
           >
-            <BsLinkedin size={30} />
-          </a>
+            <FaInstagram />
+          </Link>
+
+          <Link
+            className="text-xl"
+            href="https://br.linkedin.com/company/instituto-arist%C3%B3teles"
+            target="_blank"
+            aria-label="Clique aqui para visitar nosso perfil no Linkedin"
+          >
+            <FaLinkedin />
+          </Link>
+
+          <Link
+            className="text-xl"
+            href="https://www.tiktok.com/@institutoaristoteles"
+            target="_blank"
+            aria-label="Clique aqui para visitar nosso perfil no TikTok"
+          >
+            <FaTiktok />
+          </Link>
         </div>
       </div>
 
