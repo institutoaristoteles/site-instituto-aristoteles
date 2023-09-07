@@ -23,13 +23,21 @@ const montserrat = localFont({
   ],
 })
 
-export const metadata: Metadata = {
-  title: "Instituto Aristóteles",
-  description:
-    "Instituição sem fins lucrativos que, através de campanhas, eventos e workshops, busca oferecer apoio gratuito a jovens brasileiros na área de saúde mental",
-  verification: {
-    google: process.env.GOOGLE_VERIFICATION_CONTENT,
-  },
+export function generateMetadata(): Metadata {
+  const logoUrl = process.env.URL + "/logo1.svg"
+
+  return {
+    title: "Instituto Aristóteles",
+    description:
+      "Instituição sem fins lucrativos que, através de campanhas, eventos e workshops, busca oferecer apoio gratuito a jovens brasileiros na área de saúde mental",
+    openGraph: {
+      images: [logoUrl],
+      type: "website",
+    },
+    verification: {
+      google: process.env.GOOGLE_VERIFICATION_CONTENT,
+    },
+  }
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
