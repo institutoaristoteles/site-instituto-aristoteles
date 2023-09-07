@@ -14,10 +14,14 @@ const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
   timeStyle: "short",
 })
 
-export async function generateMetadata(props: {
+interface PostPageProps {
   params: { slug: string }
-}): Promise<Metadata> {
-  const post = await getPostBySlug(props.params.slug)
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: PostPageProps): Promise<Metadata> {
+  const post = await getPostBySlug(slug)
 
   return {
     title: post?.title + " | Instituto Aristóteles",
@@ -27,8 +31,8 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function PostPage(props: { params: { slug: string } }) {
-  const post = await getPostBySlug(props.params.slug)
+export default async function PostPage({ params: { slug } }: PostPageProps) {
+  const post = await getPostBySlug(slug)
 
   if (!post) return notFound()
 
