@@ -32,29 +32,28 @@ const initialValues: RequestBodyDto = {
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false)
 
-  const { field, isValid, handleSubmit, form } = useForm<RequestBodyDto>({
+  const { field, isValid, form } = useForm<RequestBodyDto>({
     schema,
     initialValues,
+    onSubmit: async (values: RequestBodyDto) => {
+      setIsLoading(true)
+
+      try {
+        await sendMail(values)
+        toast.success("Mensagem enviada com sucesso!")
+        form.resetForm()
+      } catch (e) {
+        toast.error("Ocorreu um erro ao enviar a mensagem.")
+      } finally {
+        setIsLoading(false)
+      }
+    },
   })
-
-  const submitHandler = async (values: RequestBodyDto) => {
-    setIsLoading(true)
-
-    try {
-      await sendMail(values)
-      toast.success("Mensagem enviada com sucesso!")
-      form.resetForm()
-    } catch (e) {
-      toast.error("Ocorreu um erro ao enviar a mensagem.")
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   return (
     <form
       className="flex flex-col items-start gap-3"
-      onSubmit={handleSubmit(submitHandler)}
+      onSubmit={form.handleSubmit}
     >
       <div className="w-full flex flex-col">
         <label htmlFor="name" className="text-sm">
@@ -97,9 +96,9 @@ export default function ContactForm() {
           aria-label="Assunto"
           {...field("subject")}
         >
-          {Object.values(subjects).map((value) => (
-            <option value={value} key={value}>
-              {value}
+          {Object.values(subjects).map((subject) => (
+            <option value={subject} key={subject}>
+              {subject}
             </option>
           ))}
         </select>

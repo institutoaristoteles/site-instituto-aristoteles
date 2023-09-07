@@ -1,4 +1,4 @@
-import type { FormEvent, InputHTMLAttributes } from "react"
+import type { InputHTMLAttributes } from "react"
 import { useCallback, useState } from "react"
 import { useFormik } from "formik"
 import { type Schema } from "yup"
@@ -6,6 +6,7 @@ import { type Schema } from "yup"
 interface UseFormConfig<T extends Record<string, any>> {
   initialValues: T
   schema: Schema
+  onSubmit: (values: T) => void | Promise<void>
 }
 
 export default function useForm<T extends Record<string, any>>(
@@ -15,7 +16,7 @@ export default function useForm<T extends Record<string, any>>(
 
   const form = useFormik<T>({
     initialValues: config.initialValues,
-    onSubmit: () => {},
+    onSubmit: config.onSubmit,
     validationSchema: config.schema,
   })
 
@@ -30,19 +31,6 @@ export default function useForm<T extends Record<string, any>>(
       return !((isDirty || form.submitCount > 0) && hasError)
     },
     [dirty, form.errors, form.submitCount],
-  )
-
-  const handleSubmit = useCallback(
-    (handler: (values: T) => Promise<void>) => {
-      return async (ev: FormEvent<HTMLFormElement>) => {
-        form.handleSubmit(ev)
-        if (form.isValid) {
-          await form.submitForm()
-          await handler(form.values)
-        }
-      }
-    },
-    [form],
   )
 
   const field = useCallback(
@@ -68,5 +56,5 @@ export default function useForm<T extends Record<string, any>>(
     [form, isValid, markAsDirty],
   )
 
-  return { form, isValid, field, handleSubmit }
+  return { form, isValid, field }
 }
