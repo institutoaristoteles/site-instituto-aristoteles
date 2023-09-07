@@ -72,8 +72,8 @@ async function Home() {
 
             <p>
               Somos uma instituição sem fins lucrativos que, através de
-              campanhas, eventos e workshops, busca oferecer apoio gratuito a
-              jovens brasileiros na área de saúde mental.
+              campanhas, eventos e <i lang="en">workshops</i>, busca oferecer
+              apoio gratuito a jovens brasileiros na área de saúde mental.
             </p>
           </div>
         </div>
