@@ -48,15 +48,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
         />
       </body>
 
-      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-Y25S0EWKPS"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
       ></Script>
 
-      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-      <Script id="google-analytics" strategy="beforeInteractive">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
