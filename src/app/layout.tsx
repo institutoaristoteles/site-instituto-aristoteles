@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description:
     "Instituição sem fins lucrativos que, através de campanhas, eventos e workshops, busca oferecer apoio gratuito a jovens brasileiros na área de saúde mental",
   verification: {
-    google: process.env.GOOGLE_VERIFICATION_CONTENT,
+    google: "teste",
   },
 }
 
