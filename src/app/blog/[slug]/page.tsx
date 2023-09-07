@@ -61,6 +61,7 @@ export default async function PostPage(props: { params: { slug: string } }) {
           alt=""
           width={3000}
           height={3000}
+          priority
           className="w-full max-h-[250px] object-cover object-center mb-5 md:mb-10"
         />
       )}
