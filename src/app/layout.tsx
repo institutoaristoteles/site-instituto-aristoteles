@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react"
 import Header from "@/shared/components/header"
 import Footer from "@/shared/components/footer"
 import { Toaster } from "react-hot-toast"
+import Script from "next/script"
 
 const montserrat = localFont({
   src: [
@@ -46,6 +47,18 @@ export default function RootLayout({ children }: PropsWithChildren) {
           }}
         />
       </body>
+
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-Y25S0EWKPS"
+      ></Script>
+      <Script id="google-analytics">
+        {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Y25S0EWKPS');`}
+      </Script>
     </html>
   )
 }
