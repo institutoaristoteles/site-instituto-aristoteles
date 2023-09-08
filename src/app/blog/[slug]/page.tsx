@@ -109,7 +109,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
         </header>
 
         <div
-          className="prose prose-p:text-justify prose-p:hyphens-auto prose-headings:text-dark-blue prose-headings:font-normal"
+          className="prose prose-p:text-justify prose-p:hyphens-auto prose-headings:text-dark-blue prose-p:max-sm:text-sm"
           dangerouslySetInnerHTML={{ __html: content }}
         />
 

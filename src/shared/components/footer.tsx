@@ -4,7 +4,7 @@ import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 
 function Footer() {
   return (
-    <footer className="bg-dark text-white bg-dark-blue mt-32">
+    <footer className="bg-dark text-white bg-dark-blue mt-10">
       <div className="container flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 py-7">
         <h2 className="lg:text-4x1 md:text-dark font-semibold">
           Instituto Aristoteles

@@ -5,7 +5,7 @@ import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 async function Home() {
   return (
     <main className="flex flex-col">
-      <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom pt-24">
+      <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom">
         <div className="container flex items-center flex-wrap md:flex-nowrap gap-10">
           <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
             <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-blue leading-normal md:leading-normal lg:leading-normal xl:leading-normal">
