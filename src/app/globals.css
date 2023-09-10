@@ -8,7 +8,7 @@
     }
 
     body {
-        @apply grid grid-rows-[auto_1fr_auto];
+        @apply grid grid-rows-[auto_1fr_auto] gap-content-gap;
     }
 }
 

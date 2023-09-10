@@ -10,7 +10,7 @@ function Contact() {
   return (
     <main className="w-full flex justify-start">
       <div className="container">
-        <h2 className="text-3xl font-bold text-dark-blue py-5">Contato</h2>
+        <h2 className="text-3xl font-bold text-dark-blue mb-5">Contato</h2>
 
         <ContactForm />
       </div>

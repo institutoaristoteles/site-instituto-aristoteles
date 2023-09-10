@@ -77,7 +77,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
   }
 
   return (
-    <article>
+    <main className="-mt-content-gap">
       {post.image && (
         <Image
           src={post.image}
@@ -118,6 +118,6 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </div>
-    </article>
+    </main>
   )
 }

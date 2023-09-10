@@ -28,6 +28,9 @@ module.exports = {
       backgroundImage: {
         "home-section": "url('/images/home-bg.svg')",
       },
+      spacing: {
+        "content-gap": "1.25rem",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

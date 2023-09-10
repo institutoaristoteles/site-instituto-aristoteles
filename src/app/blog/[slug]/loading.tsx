@@ -3,7 +3,7 @@ import { PostAuthorSkeleton } from "@/shared/components/post-author-badge"
 
 export default function PostPageLoader() {
   return (
-    <article>
+    <article className="-mt-content-gap">
       <Skeleton height={250} width="100%" className="mb-5 md:mb-10" />
 
       <div className="container flex flex-col gap-5 md:gap-10 max-w-prose">
