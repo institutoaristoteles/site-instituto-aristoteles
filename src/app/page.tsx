@@ -1,11 +1,23 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import heroImage from "@/assets/images/ilustracao-home.svg"
+import ideaImage from "@/assets/images/idea.svg"
+import targetImage from "@/assets/images/target.svg"
+import justiceImage from "@/assets/images/justice.svg"
+import agileImage from "@/assets/images/agile.svg"
+import valuesImage from "@/assets/images/values.svg"
+import flexibilityImage from "@/assets/images/flexibility.svg"
+import shuttleImage from "@/assets/images/shuttle.svg"
 
 async function Home() {
   return (
     <main className="flex flex-col">
-      <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom">
+      <section
+        className={
+          "bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom"
+        }
+      >
         <div className="container flex items-center flex-wrap md:flex-nowrap gap-10">
           <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
             <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-blue leading-normal md:leading-normal lg:leading-normal xl:leading-normal">
@@ -45,9 +57,7 @@ async function Home() {
           </div>
 
           <Image
-            src="/images/ilustracao-home.svg"
-            width={500}
-            height={500}
+            src={heroImage}
             alt=""
             className="mx-auto w-8/12 md:w-1/2 lg:w-8/12"
             priority
@@ -57,14 +67,7 @@ async function Home() {
 
       <section className="prose pt-12 pb-6 md:pt-24 md:py-12">
         <div className="container flex items-center justify-center flex-wrap gap-5 md:gap-20 md:justify-stretch md:flex-nowrap">
-          <Image
-            src="/images/idea.svg"
-            width={260}
-            height={260}
-            alt=""
-            className="w-1/3 md:w-1/6"
-            priority
-          />
+          <Image src={ideaImage} alt="" className="w-1/3 md:w-1/6" priority />
           <div>
             <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left">
               Quem somos?
@@ -104,14 +107,7 @@ async function Home() {
             </p>
           </div>
 
-          <Image
-            src="/images/target.svg"
-            width={260}
-            height={260}
-            alt=""
-            className="w-1/3 md:w-1/6"
-            priority
-          />
+          <Image src={targetImage} alt="" className="w-1/3 md:w-1/6" priority />
         </div>
       </section>
 
@@ -123,46 +119,22 @@ async function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center justify-items-center text-center">
-              <Image
-                src="/images/justice.svg"
-                width={200}
-                height={200}
-                alt=""
-                className="w-1/4 m-0"
-              />
+              <Image src={justiceImage} alt="" className="w-1/4 m-0" />
               <p>Transparência e coerência em nossas ações</p>
             </div>
 
             <div className="flex flex-col items-center justify-items-center text-center">
-              <Image
-                src="/images/agile.svg"
-                width={200}
-                height={200}
-                alt=""
-                className="w-1/4 m-0"
-              />
+              <Image src={agileImage} alt="" className="w-1/4 m-0" />
               <p>Respeito pela diversidade</p>
             </div>
 
             <div className="flex flex-col items-center justify-items-center text-center">
-              <Image
-                src="/images/values.svg"
-                width={200}
-                height={200}
-                alt=""
-                className="w-1/4 m-0"
-              />
+              <Image src={valuesImage} alt="" className="w-1/4 m-0" />
               <p>Fortalecimento de vínculos</p>
             </div>
 
             <div className="flex flex-col items-center justify-items-center text-center">
-              <Image
-                src="/images/flexibility.svg"
-                width={200}
-                height={200}
-                alt=""
-                className="w-1/4 m-0"
-              />
+              <Image src={flexibilityImage} alt="" className="w-1/4 m-0" />
               <p>Honestidade, liberdade e autonomia</p>
             </div>
           </div>
@@ -183,13 +155,7 @@ async function Home() {
               <li>Projetos de lei</li>
             </ul>
 
-            <Image
-              src="/images/shuttle.svg"
-              width={200}
-              height={200}
-              alt=""
-              className="w-1/3 md:w-1/6"
-            />
+            <Image src={shuttleImage} alt="" className="w-1/3 md:w-1/6" />
           </div>
         </div>
       </section>

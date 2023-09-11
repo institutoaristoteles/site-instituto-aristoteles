@@ -26,7 +26,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "home-section": "url('/images/home-bg.svg')",
+        "home-section": "url('/home-bg.svg')",
       },
       spacing: {
         "content-gap": "1.25rem",
