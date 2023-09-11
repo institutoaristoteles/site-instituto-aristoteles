@@ -83,7 +83,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
           src={post.image}
           alt=""
           width={3000}
-          height={3000}
+          height={500}
           priority
           className="w-full max-h-[250px] object-cover object-center mb-5 md:mb-10"
         />
@@ -103,9 +103,11 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
             </span>
           </div>
 
-          <div className="prose text-justify hyphens-auto leading-relaxed border-b border-b-[#e9e9e9] pb-5 opacity-60">
-            {post.description}
-          </div>
+          {post.description && (
+            <div className="prose text-justify hyphens-auto leading-relaxed border-b border-b-[#e9e9e9] pb-5 opacity-60">
+              {post.description}
+            </div>
+          )}
         </header>
 
         <div

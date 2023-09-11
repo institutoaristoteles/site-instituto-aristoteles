@@ -33,7 +33,7 @@ const mapNotionPageToPost = (page: PageObjectResponse): Post => {
     authorId: page.created_by.id,
     createdTime: new Date(page.created_time),
     lastEditedTime: new Date(page.last_edited_time),
-    description: pageProps.Description.rich_text[0].plain_text,
+    description: pageProps.Description.rich_text[0]?.plain_text,
     slug: pageProps.Slug.rich_text[0].plain_text,
   }
 }
@@ -92,7 +92,7 @@ export const getPostBySlug = cache(async (slug: string) => {
 
 export const getPostContent = cache(async (pageId: string) => {
   const mdBlocks = await n2m.pageToMarkdown(pageId)
-  const markdown = await n2m.toMarkdownString(mdBlocks)
+  const markdown = n2m.toMarkdownString(mdBlocks)
   return mdConverter.makeHtml(markdown.parent)
 })
 

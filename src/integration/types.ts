@@ -27,7 +27,7 @@ export interface Post {
   lastEditedTime: Date
   authorId: string
   slug: string
-  description: string
+  description?: string
 }
 
 export interface Author {
