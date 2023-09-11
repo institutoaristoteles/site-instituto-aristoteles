@@ -79,14 +79,16 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
   return (
     <main className="-mt-content-gap">
       {post.image && (
-        <Image
-          src={post.image}
-          alt=""
-          width={3000}
-          height={500}
-          priority
-          className="w-full max-h-[250px] object-cover object-center mb-5 md:mb-10"
-        />
+        <figure className="w-screen h-[250px] mb-5 md:mb-10 relative">
+          <Image
+            src={post.image}
+            alt=""
+            quality={100}
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </figure>
       )}
 
       <div className="container flex flex-col gap-5 md:gap-10 max-w-prose">
