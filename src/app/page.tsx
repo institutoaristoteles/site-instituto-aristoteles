@@ -1,9 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+
 import heroImage from "@/assets/images/ilustracao-home.svg"
-import ideaImage from "@/assets/images/idea.svg"
-import targetImage from "@/assets/images/target.svg"
+import aboutUsImage from "@/assets/images/idea.svg"
+import purposeImage from "@/assets/images/target.svg"
 import justiceImage from "@/assets/images/justice.svg"
 import agileImage from "@/assets/images/agile.svg"
 import valuesImage from "@/assets/images/values.svg"
@@ -13,14 +14,10 @@ import shuttleImage from "@/assets/images/shuttle.svg"
 async function Home() {
   return (
     <main className="flex flex-col">
-      <section
-        className={
-          "bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom"
-        }
-      >
+      <section className="bg-home-section bg-no-repeat bg-[length:100%_40%] lg:bg-[length:70%_70%] bg-right-bottom">
         <div className="container flex items-center flex-wrap md:flex-nowrap gap-10">
           <div className="flex flex-col gap-5 xl:gap-10 text-center items-center md:text-left md:items-start">
-            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-blue leading-normal md:leading-normal lg:leading-normal xl:leading-normal">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-blue leading-normal md:leading-normal lg:leading-normal xl:leading-normal mt-0">
               Um projeto idealizado para oferecer{" "}
               <strong>apoio gratuito</strong> a jovens brasileiros na área de{" "}
               <strong>saúde mental</strong>
@@ -67,9 +64,14 @@ async function Home() {
 
       <section className="prose pt-12 pb-6 md:pt-24 md:py-12">
         <div className="container flex items-center justify-center flex-wrap gap-5 md:gap-20 md:justify-stretch md:flex-nowrap">
-          <Image src={ideaImage} alt="" className="w-1/3 md:w-1/6" priority />
+          <Image
+            src={aboutUsImage}
+            alt=""
+            className="w-1/3 md:w-1/6"
+            priority
+          />
           <div>
-            <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left">
+            <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left mt-0">
               Quem somos?
             </h2>
 
@@ -85,7 +87,7 @@ async function Home() {
       <section className="prose py-6 md:py-12 prose-p:text-justify">
         <div className="container flex items-center justify-center flex-wrap-reverse gap-5 md:gap-20 md:flex-nowrap">
           <div>
-            <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left">
+            <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center md:text-left mt-0">
               Nosso Propósito
             </h2>
 
@@ -107,13 +109,18 @@ async function Home() {
             </p>
           </div>
 
-          <Image src={targetImage} alt="" className="w-1/3 md:w-1/6" priority />
+          <Image
+            src={purposeImage}
+            alt=""
+            className="w-1/3 md:w-1/6"
+            priority
+          />
         </div>
       </section>
 
       <section className="prose py-6 md:py-12">
         <div className="container">
-          <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-10 text-center">
+          <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-10 text-center mt-0">
             Princípios
           </h2>
 
@@ -143,7 +150,7 @@ async function Home() {
 
       <section className="prose py-6 md:py-12">
         <div className="container">
-          <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center">
+          <h2 className="font-bold text-2xl lg:text-3xl text-dark-blue mb-5 text-center mt-0">
             Metas de atuação
           </h2>
 
