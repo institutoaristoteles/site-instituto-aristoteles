@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { memo, useCallback, useMemo, useState } from "react"
 import { FaBars, FaTimes } from "react-icons/fa"
 import Image from "next/image"
 import { tv } from "tailwind-variants"
@@ -41,7 +41,9 @@ const Links = [
 function Header() {
   const [open, setOpen] = useState(false)
 
-  const toggleMenu = () => setOpen(!open)
+  const toggleMenu = useCallback(() => setOpen(!open), [open])
+
+  const MenuIcon = useMemo(() => (open ? FaTimes : FaBars), [open])
 
   return (
     <header className="shadow-md w-full sticky top-0 left-0 bg-dark-blue z-10">
@@ -62,8 +64,9 @@ function Header() {
         <button
           onClick={toggleMenu}
           className="text-3x1 text-white flex justify-center cursor-pointer md:hidden"
+          aria-label={!open ? "Abrir menu" : "Fechar menu"}
         >
-          {open ? <FaTimes /> : <FaBars />}
+          <MenuIcon aria-hidden />
         </button>
 
         <nav className={menu({ open })}>
@@ -82,4 +85,4 @@ function Header() {
   )
 }
 
-export default Header
+export default memo(Header)
