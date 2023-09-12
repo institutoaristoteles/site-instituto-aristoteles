@@ -68,9 +68,13 @@ function Header() {
 
         <nav className={menu({ open })}>
           {Links.map(({ link, name }, index) => (
-            <a href={link} className="text-white hover:underline" key={index}>
+            <Link
+              href={link}
+              className="text-white hover:underline"
+              key={index}
+            >
               {name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
