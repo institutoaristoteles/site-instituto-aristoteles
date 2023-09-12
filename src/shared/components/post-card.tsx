@@ -1,8 +1,31 @@
 import { Post } from "@/integration/types"
 import Link from "next/link"
 import Image from "next/image"
-import PostAuthorBadge from "@/shared/components/post-author-badge"
+import PostAuthorBadge, {
+  PostAuthorSkeleton,
+} from "@/shared/components/post-author-badge"
 import React, { memo } from "react"
+import Skeleton from "react-loading-skeleton"
+
+export function PostCardLoader() {
+  return (
+    <article className="flex flex-col border border-[#e7e7e7] overflow-hidden bg-white h-full">
+      <Skeleton
+        width="100%"
+        className="h-32 md:h-52 overflow-hidden"
+        borderRadius={0}
+        inline
+        style={{ display: "block" }}
+      />
+
+      <div className="p-5 flex flex-col gap-3 flex-grow">
+        <Skeleton height={14} width={150} />
+        <Skeleton height={26} width="100%" />
+        <PostAuthorSkeleton />
+      </div>
+    </article>
+  )
+}
 
 function PostCard({ post, priority }: { post: Post; priority: boolean }) {
   const postUrl = `/blog/${post.slug}`

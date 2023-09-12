@@ -2,9 +2,19 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { Post } from "@/integration/types"
-import PostCard from "@/shared/components/post-card"
+import PostCard, { PostCardLoader } from "@/shared/components/post-card"
 import { fetchPosts } from "@/integration/api"
-import { ImSpinner11 } from "react-icons/im"
+import _ from "lodash"
+
+export const PostsListingLoader = () => (
+  <section className="flex flex-col">
+    <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {_.range(0, 9).map(() => (
+        <PostCardLoader key={_.uniqueId()} />
+      ))}
+    </section>
+  </section>
+)
 
 function PostsListing(props: {
   initialPosts: Post[]
@@ -70,18 +80,17 @@ function PostsListing(props: {
             priority={index < props.pageSize}
           />
         ))}
+
+        {isLoading && (
+          <React.Fragment>
+            {_.range(0, 3).map(() => (
+              <PostCardLoader key={_.uniqueId()} />
+            ))}
+          </React.Fragment>
+        )}
       </section>
 
-      <div className="flex flex-col items-center gap-2 py-10" ref={ref}>
-        {isLoading && (
-          <>
-            <ImSpinner11 className="animate-spin text-dark-blue" />
-            <span className="text-dark-blue opacity-80 text-xs">
-              Carregando mais...
-            </span>
-          </>
-        )}
-      </div>
+      <div className="flex flex-col items-center gap-2 py-10" ref={ref}></div>
     </section>
   )
 }
