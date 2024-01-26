@@ -1,5 +1,4 @@
 import Skeleton from "react-loading-skeleton"
-import { PostAuthorSkeleton } from "@/shared/components/post-author-badge"
 
 export default function PostPageLoader() {
   return (
@@ -11,7 +10,12 @@ export default function PostPageLoader() {
           <Skeleton height={26} width="100%" />
 
           <div className="flex flex-col-reverse md:flex-row gap-2 justify-between">
-            <PostAuthorSkeleton />
+            <div className="flex gap-2 items-center">
+              <Skeleton circle height={24} width={24} />
+              <span className="text-xs">
+                <Skeleton width={100} height={12} />
+              </span>
+            </div>
             <Skeleton height={14} width={230} />
           </div>
 

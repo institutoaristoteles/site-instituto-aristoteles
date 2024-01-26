@@ -16,27 +16,24 @@ export const PostsListingLoader = () => (
   </section>
 )
 
-function PostsListing(props: {
-  initialPosts: Post[]
-  hasMore: boolean
-  startCursor?: string
-  pageSize: number
-}) {
-  const [posts, setPosts] = useState<Post[]>(props.initialPosts)
-  const [cursor, setCursor] = useState<string | undefined>(props.startCursor)
-  const [hasMore, setHasMore] = useState(props.hasMore)
+function PostsListing() {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [hasMore, setHasMore] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
+  const pageSize = 15
 
-  const loadPosts = async () => {
+  const loadPosts = async (page: number) => {
     const data = await fetchPosts({
-      startCursor: cursor,
-      pageSize: props.pageSize,
+      pageSize,
+      status: "published",
+      page,
     })
 
     setPosts([...posts, ...data.results])
-    setCursor(data.nextCursor)
-    setHasMore(data.hasMore)
+    setCurrentPage(data.currentPage)
+    setHasMore(posts.length < data.totalSize)
     setIsLoading(false)
   }
 
@@ -51,7 +48,7 @@ function PostsListing(props: {
       const target = entries[0]
       if (target.isIntersecting && hasMore) {
         setIsLoading(true)
-        await loadPosts()
+        await loadPosts(currentPage + 1)
       }
     }, options)
 
@@ -64,7 +61,7 @@ function PostsListing(props: {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasMore, cursor])
+  }, [hasMore, currentPage])
 
   return (
     <section className="flex flex-col">
@@ -74,11 +71,7 @@ function PostsListing(props: {
         aria-busy={isLoading}
       >
         {posts.map((post, index) => (
-          <PostCard
-            post={post}
-            key={post.id}
-            priority={index < props.pageSize}
-          />
+          <PostCard post={post} key={post.id} priority={index < pageSize} />
         ))}
 
         {isLoading && (

@@ -1,25 +1,28 @@
-import { getPosts } from "@/integration/notion"
 import { Post } from "@/integration/types"
+import { fetchPosts } from "@/integration/api"
 
-async function* getAllPosts(): AsyncGenerator<Post[]> {
-  let startCursor: string | undefined
+async function getAllPosts(): Promise<Post[]> {
+  const page = 1
+  let hasMore = false
+  let posts: Post[] = []
 
   do {
-    const result = await getPosts({ pageSize: 100, startCursor })
-    startCursor = result.nextCursor
+    const result = await fetchPosts({
+      pageSize: 100,
+      page,
+      status: "published",
+    })
+    posts = [...posts, ...result.results]
+    hasMore = posts.length <= result.results.length
+  } while (hasMore)
 
-    yield result.results
-  } while (startCursor)
+  return posts
 }
 
 export default async function sitemap() {
   const root = process.env.URL
 
-  let posts: Post[] = []
-
-  for await (const postsPage of getAllPosts()) {
-    posts = [...posts, ...postsPage]
-  }
+  const posts: Post[] = await getAllPosts()
 
   return [
     {
@@ -42,7 +45,7 @@ export default async function sitemap() {
     },
     ...posts.map((post) => ({
       url: root + "/blog/" + post.slug,
-      lastModified: post.lastEditedTime,
+      lastModified: new Date(post.createdAt).toISOString(),
       changeFrequency: "hourly",
       priority: 1,
     })),

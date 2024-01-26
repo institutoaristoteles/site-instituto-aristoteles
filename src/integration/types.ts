@@ -1,44 +1,45 @@
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-
-type Properties = PageObjectResponse["properties"][0]
-type PropertyType = Properties["type"]
-type Cover = PageObjectResponse["cover"]
-
-export type Property<T extends PropertyType> = Extract<Properties, { type: T }>
-export type NotionExternalFile = Extract<Cover, { type: "external" }>
-export type NotionFile = Extract<Cover, { type: "file" }>
-
-export type PostProps = {
-  Title: Property<"title">
-  Description: Property<"rich_text">
-  Slug: Property<"rich_text">
-}
+type PostStatus = "published" | "draft"
 
 export type GetPostsParams = {
   pageSize: number
-  startCursor?: string
+  page: number
+  status: PostStatus
+}
+
+export interface Category {
+  id: string
+  title: string
+  slug: string
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface Author {
+  id: string
+  avatar?: string
+  name: string
+  email: string
+  username: string
 }
 
 export interface Post {
   id: string
   title: string
-  image?: string
-  createdTime: Date
-  lastEditedTime: Date
-  authorId: string
   slug: string
-  description?: string
-}
-
-export interface Author {
-  id: string
-  email?: string
-  name: string | null
-  avatar: string | null
+  coverUrl?: string
+  description: string
+  content: string
+  status: PostStatus
+  createdBy: Author
+  updatedBy?: Author
+  category?: Category
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface Paginated<T> {
-  hasMore: boolean
-  nextCursor: string | undefined
   results: T[]
+  currentPage: number
+  pageSize: number
+  totalSize: number
 }

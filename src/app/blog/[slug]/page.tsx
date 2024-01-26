@@ -1,13 +1,9 @@
-import {
-  getAuthorById,
-  getPostBySlug,
-  getPostContent,
-} from "@/integration/notion"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import PostAuthorBadge from "@/shared/components/post-author-badge"
 import { Metadata } from "next"
 import { Article, WithContext } from "schema-dts"
+import { getPostBySlug } from "@/integration/api"
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
   dateStyle: "medium",
@@ -24,11 +20,9 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug)
   if (!post) return {}
 
-  const author = await getAuthorById(post.authorId)
-
   const common = {
     title: post.title,
-    images: post.image ? [post.image] : [],
+    images: post.coverUrl ? [post.coverUrl] : [],
     description: post.description,
   }
 
@@ -39,13 +33,13 @@ export async function generateMetadata({
       type: "article",
       url: process.env.URL + "/blog/" + post.slug,
       siteName: "Instituto Aristóteles",
-      publishedTime: post.createdTime.toISOString(),
-      authors: author?.name,
+      publishedTime: new Date(post.createdAt).toISOString(),
+      authors: post.createdBy?.name,
     },
     twitter: {
       card: "summary",
       ...common,
-      creator: author?.name || undefined,
+      creator: post.createdBy?.name || undefined,
     },
   }
 }
@@ -55,33 +49,30 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
 
   if (!post) return notFound()
 
-  const content = await getPostContent(post.id)
-  const author = await getAuthorById(post.authorId)
-
   const jsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
     "@type": "Article",
     name: post.title,
-    image: post.image,
+    image: post.coverUrl,
     description: post.description,
     headline: post.title,
     author: {
       "@type": "Person",
-      name: author.name ?? undefined,
-      image: author.avatar ?? undefined,
-      email: author.email ?? undefined,
-      url: author.email,
+      name: post.createdBy.name ?? undefined,
+      image: post.createdBy.avatar ?? undefined,
+      email: post.createdBy.email ?? undefined,
+      url: post.createdBy.email,
     },
-    dateCreated: post.createdTime.toISOString(),
-    dateModified: post.lastEditedTime.toISOString(),
+    dateCreated: new Date(post.createdAt).toISOString(),
+    dateModified: new Date(post.updatedAt).toISOString(),
   }
 
   return (
     <main className="-mt-content-gap">
-      {post.image && (
+      {post.coverUrl && (
         <figure className="w-screen h-[250px] mb-5 md:mb-10 relative">
           <Image
-            src={post.image}
+            src={post.coverUrl}
             alt=""
             quality={100}
             fill
@@ -98,10 +89,10 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
           </h1>
 
           <div className="flex flex-col-reverse md:flex-row gap-2 justify-between">
-            <PostAuthorBadge authorId={post.authorId} />
+            <PostAuthorBadge {...post.createdBy} />
             <span className="text-xs">
               Publicado em:{" "}
-              <time>{dateFormatter.format(post.createdTime)}</time>
+              <time>{dateFormatter.format(new Date(post.createdAt))}</time>
             </span>
           </div>
 
@@ -114,7 +105,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
 
         <div
           className="prose prose-p:text-justify prose-p:hyphens-auto prose-headings:text-dark-blue"
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         <script
